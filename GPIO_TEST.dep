@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>4</fileVersion>
-    <fileChecksum>3982793059</fileChecksum>
+    <fileChecksum>3359398594</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -48,6 +48,11 @@
             <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
             <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
             <file>$PROJ_DIR$\Debug\Obj\intTochar.o</file>
+            <file>$PROJ_DIR$\startup_ewarm.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_ewarm.o</file>
+            <file>$PROJ_DIR$\inc\hw_nvic.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_ewarm.pbi</file>
+            <file>$PROJ_DIR$\inc\hw_types.h</file>
             <file>C:\Users\Carnival\Documents\Embedded Workbench IDE\GPIO_TEST\main.c</file>
         </outputs>
         <file>
@@ -132,11 +137,11 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 21 18 36 5 12 19 33</file>
+                    <file> 21 18 36 5 12 19 33 29</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 18 5 12 21 36 19 33</file>
+                    <file> 33 29 36 18 19 21 5 12</file>
                 </tool>
             </inputs>
         </file>
@@ -213,7 +218,7 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 22 6 36 12 18 5 30 19 33 21</file>
+                    <file> 33 5 6 19 36 18 30 12 22 21</file>
                 </tool>
             </inputs>
         </file>
@@ -228,7 +233,30 @@
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 23 4 42 34 14 8 35 3 40 41</file>
+                    <file> 23 4 42 34 14 8 44 35 3 40 41</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\startup_ewarm.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 44</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 18 36 5 12 19 33 45 47</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 5 47 12 45 36 19 33 18</file>
                 </tool>
             </inputs>
         </file>

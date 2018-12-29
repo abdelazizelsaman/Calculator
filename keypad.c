@@ -2,12 +2,20 @@
 
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
+#include <stdbool.h>
 
 #define KEYPAD_ROW GPIOE
 #define KEYPAD_COL GPIOC
 
-
+bool flag;
 /* this function initializes the ports connected to the keypad */
+void delayMs(uint32_t n)
+{
+int i, j;
+for(i = 0 ; i < n; i++)
+for(j = 0; j < 3180; j++)
+{} /* do nothing for 1 ms */
+}
 void keypad_init(void)
 {
 SYSCTL_RCGCGPIO_R|= 0x04; /* enable clock to GPIOC */
@@ -17,6 +25,11 @@ GPIO_PORTE_DEN_R |= 0x0F; /* set row pins 3-0 as digital pins */
 GPIO_PORTC_DIR_R &= ~0xF0; /* set column pin 7-4 as input */
 GPIO_PORTC_DEN_R |= 0xF0; /* set column pin 7-4 as digital pins */
 GPIO_PORTC_PUR_R |= 0xF0; /* enable pull-ups for pin 7-4 */
+GPIO_PORTC_IM_R &= ~0xF0;
+    GPIO_PORTC_IEV_R |= 0xF0;
+    GPIO_PORTC_ICR_R |=0xF0;
+    GPIO_PORTC_IM_R |= 0xF0;
+    NVIC_EN0_R |= (1<<2);
 }
 /* This is a non-blocking function to read the keypad. */
 /* If a key is pressed, it returns the key label in ASCII encoding. Otherwise, it
@@ -67,4 +80,17 @@ if (col == 0xD0) return keymap[row][1]; /* key in column 1 */
 if (col == 0xB0) return keymap[row][2]; /* key in column 2 */
 if (col == 0x70) return keymap[row][3]; /* key in column 3 */
 return 0; /* just to be safe */
+}
+void GPIO_PORTC_Handler(void){
+  delayMs(200);
+  unsigned char character = keypad_getkey();
+  if( character !=0)
+  {
+  if ( character == '=')
+    return;
+  else 
+  {
+   lcd_data(character);   
+  }
+  }
 }

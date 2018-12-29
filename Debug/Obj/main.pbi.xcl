@@ -1,9 +1,9 @@
-"G:\ASU\Class 2020\Microcontrollers\Assingments\Assignment 1\main.c"
+"G:\ASU\Class 2020\Microcontrollers\Assingments\Calculator\main.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -I
-G:\ASU\Class 2020\Microcontrollers\Assingments\Assignment 1
+G:\ASU\Class 2020\Microcontrollers\Assingments\Calculator
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\inc
 -I

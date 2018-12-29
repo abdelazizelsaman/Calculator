@@ -2388,6 +2388,9 @@
         <name>$PROJ_DIR$\prototypes.h</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\startup_ewarm.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\tm4c123gh6pm.h</name>
     </file>
 </project>

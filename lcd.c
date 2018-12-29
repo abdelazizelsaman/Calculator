@@ -8,7 +8,13 @@
 #define EN 0x80 /* PORTA BIT7 mask */
 void LCD_command(unsigned char cmnd);
 
-
+void delayUs(uint32_t n)
+{
+int i, j;
+for(i = 0 ; i < n; i++)
+for(j = 0; j < 3; j++)
+{} /* do nothing for 1 us */
+}
 void LCD_init(void)
 {
 SYSCTL_RCGCGPIO_R |= 0x01; /* enable clock to GPIOA */
