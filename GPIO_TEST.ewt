@@ -2370,10 +2370,7 @@
         </settings>
     </configuration>
     <file>
-        <name>$PROJ_DIR$\charToint.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\intTochar.c</name>
+        <name>$PROJ_DIR$\calculation.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\keypad.c</name>
@@ -2383,9 +2380,6 @@
     </file>
     <file>
         <name>$PROJ_DIR$\main.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\prototypes.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\startup_ewarm.c</name>

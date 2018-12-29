@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.30.2.160/W32 for ARM                  29/Dec/2018  17:21:12
+# IAR ELF Linker V8.30.2.160/W32 for ARM                  29/Dec/2018  19:03:48
 # Copyright 2007-2018 IAR Systems AB.
 #
 #    Output file  =  
@@ -10,10 +10,8 @@
 #        G:\ASU\Class
 #        2020\Microcontrollers\Assingments\Calculator\Debug\List\GPIO_TEST.map
 #    Command line =  
-#        -f C:\Users\Carnival\AppData\Local\Temp\EW244F.tmp ("G:\ASU\Class
-#        2020\Microcontrollers\Assingments\Calculator\Debug\Obj\charToint.o"
-#        "G:\ASU\Class
-#        2020\Microcontrollers\Assingments\Calculator\Debug\Obj\intTochar.o"
+#        -f C:\Users\Carnival\AppData\Local\Temp\EW12FC.tmp ("G:\ASU\Class
+#        2020\Microcontrollers\Assingments\Calculator\Debug\Obj\calculation.o"
 #        "G:\ASU\Class
 #        2020\Microcontrollers\Assingments\Calculator\Debug\Obj\keypad.o"
 #        "G:\ASU\Class
@@ -63,37 +61,59 @@ define block HEAP with size = 8K, alignment = 8 { };
           rw, block CSTACK, block HEAP };
 do not initialize { section .noinit };
 
-  Section  Kind         Address   Size  Object
-  -------  ----         -------   ----  ------
-"A0":                            0x26c
-  .intvec  const            0x0  0x26c  startup_ewarm.o [1]
-                        - 0x26c  0x26c
+  Section          Kind         Address   Size  Object
+  -------          ----         -------   ----  ------
+"A0":                                    0x26c
+  .intvec          const            0x0  0x26c  startup_ewarm.o [1]
+                                - 0x26c  0x26c
 
-"P1":                            0x44c
-  .text    ro code        0x26c  0x1a4  keypad.o [1]
-  .text    ro code        0x410   0x56  ABImemcpy_unaligned.o [4]
-  .text    ro code        0x468   0xfc  lcd.o [1]
-  .text    ro code        0x564   0xa8  main.o [1]
-  .text    ro code        0x60c   0x2e  startup_ewarm.o [1]
-  .text    ro code        0x63c   0x22  fpinit_M.o [3]
-  .text    ro code        0x660   0x1e  cmain.o [4]
-  .text    ro code        0x67e    0x4  low_level_init.o [2]
-  .text    ro code        0x682    0x4  exit.o [2]
-  .text    ro code        0x688    0xa  cexit.o [4]
-  .text    ro code        0x694   0x14  exit.o [5]
-  .rodata  const          0x6a8   0x10  keypad.o [1]
-                        - 0x6b8  0x44c
+"P1":                                    0x5e4
+  .text            ro code        0x26c  0x180  keypad.o [1]
+  .text            ro code        0x3ec   0x56  ABImemcpy_unaligned.o [4]
+  .text            ro code        0x442   0x3a  zero_init3.o [4]
+  .text            ro code        0x47c  0x10c  lcd.o [1]
+  .text            ro code        0x588  0x160  calculation.o [1]
+  .text            ro code        0x6e8   0x84  main.o [1]
+  .text            ro code        0x76c   0x2e  startup_ewarm.o [1]
+  .text            ro code        0x79c   0x22  fpinit_M.o [3]
+  .text            ro code        0x7c0   0x1e  cmain.o [4]
+  .text            ro code        0x7de    0x4  low_level_init.o [2]
+  .text            ro code        0x7e4   0x28  data_init.o [4]
+  .text            ro code        0x80c    0x4  exit.o [2]
+  .text            ro code        0x810    0xa  cexit.o [4]
+  .text            ro code        0x81c   0x14  exit.o [5]
+  .iar.init_table  const          0x830   0x10  - Linker created -
+  .rodata          const          0x840   0x10  keypad.o [1]
+  .rodata          const          0x850    0x0  zero_init3.o [4]
+                                - 0x850  0x5e4
 
-"P2":                            0x200
-  .noinit  uninit   0x2000'0000  0x200  startup_ewarm.o [1]
-                  - 0x2000'0200  0x200
+"P2", part 1 of 2:                        0x10
+  .bss             zero     0x2000'0000    0x8  calculation.o [1]
+  .bss             zero     0x2000'0008    0x4  calculation.o [1]
+  .bss             zero     0x2000'000c    0x1  calculation.o [1]
+                          - 0x2000'000d    0xd
+
+"P2", part 2 of 2:                       0x200
+  .noinit          uninit   0x2000'0010  0x200  startup_ewarm.o [1]
+                          - 0x2000'0210  0x200
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-        0x6b8     0x3'ffff  0x3'f948
-  0x2000'0200  0x2000'7fff    0x7e00
+        0x850     0x3'ffff  0x3'f7b0
+  0x2000'0210  0x2000'7fff    0x7df0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xd:
+          0x2000'0000   0xd
 
 
 
@@ -108,12 +128,13 @@ command line/config:
     Total:
 
 G:\ASU\Class 2020\Microcontrollers\Assingments\Calculator\Debug\Obj: [1]
-    keypad.o                   420       16
-    lcd.o                      252
-    main.o                     168
+    calculation.o              352                13
+    keypad.o                   384       16
+    lcd.o                      268
+    main.o                     132
     startup_ewarm.o             46      620      512
     ------------------------------------------------
-    Total:                     886      636      512
+    Total:                   1 182      636      525
 
 dl7M_tln.a: [2]
     exit.o                       4
@@ -130,17 +151,20 @@ rt7M_tl.a: [4]
     ABImemcpy_unaligned.o       86
     cexit.o                     10
     cmain.o                     30
+    data_init.o                 40
+    zero_init3.o                58
     ------------------------------------------------
-    Total:                     126
+    Total:                     224
 
 shb_l.a: [5]
     exit.o                      20
     ------------------------------------------------
     Total:                      20
 
-    Gaps                        10
+    Gaps                         8
+    Linker created                       16
 ----------------------------------------------------
-    Grand Total:             1 084      636      512
+    Grand Total:             1 476      652      525
 
 
 *******************************************************************************
@@ -149,37 +173,49 @@ shb_l.a: [5]
 
 Entry                       Address   Size  Type      Object
 -----                       -------   ----  ----      ------
-?main                         0x661         Code  Gb  cmain.o [4]
-FaultISR                      0x627    0x2  Code  Lc  startup_ewarm.o [1]
-GPIO_PORTC_Handler            0x3ed   0x24  Code  Gb  keypad.o [1]
-IntDefaultHandler             0x629    0x2  Code  Lc  startup_ewarm.o [1]
-LCD_command                   0x4ef   0x36  Code  Gb  lcd.o [1]
-LCD_init                      0x47f   0x70  Code  Gb  lcd.o [1]
-NmiSR                         0x625    0x2  Code  Lc  startup_ewarm.o [1]
-Region$$Table$$Base             0x0          --   Gb  - Linker created -
-Region$$Table$$Limit            0x0          --   Gb  - Linker created -
-ResetISR                      0x60d   0x12  Code  Gb  startup_ewarm.o [1]
-__cmain                       0x661         Code  Gb  cmain.o [4]
-__exit                        0x695   0x14  Code  Gb  exit.o [5]
-__iar_init_vfp                0x63d         Code  Gb  fpinit_M.o [3]
-__iar_program_start           0x62b   0x10  Code  Gb  startup_ewarm.o [1]
+.iar.init_table$$Base         0x830          --   Gb  - Linker created -
+.iar.init_table$$Limit        0x840          --   Gb  - Linker created -
+?main                         0x7c1         Code  Gb  cmain.o [4]
+FaultISR                      0x787    0x2  Code  Lc  startup_ewarm.o [1]
+GPIO_PORTC_Handler            0x667   0x76  Code  Gb  calculation.o [1]
+IntDefaultHandler             0x789    0x2  Code  Lc  startup_ewarm.o [1]
+LCD_command                   0x503   0x36  Code  Gb  lcd.o [1]
+LCD_init                      0x493   0x70  Code  Gb  lcd.o [1]
+NmiSR                         0x785    0x2  Code  Lc  startup_ewarm.o [1]
+Region$$Table$$Base           0x830          --   Gb  - Linker created -
+Region$$Table$$Limit          0x840          --   Gb  - Linker created -
+ResetISR                      0x76d   0x12  Code  Gb  startup_ewarm.o [1]
+__cmain                       0x7c1         Code  Gb  cmain.o [4]
+__exit                        0x81d   0x14  Code  Gb  exit.o [5]
+__iar_data_init3              0x7e5   0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0x79d         Code  Gb  fpinit_M.o [3]
+__iar_program_start           0x78b   0x10  Code  Gb  startup_ewarm.o [1]
 __iar_unaligned_memcpy4
-                              0x411         Code  Gb  ABImemcpy_unaligned.o [4]
+                              0x3ed         Code  Gb  ABImemcpy_unaligned.o [4]
 __iar_unaligned_memcpy8
-                              0x411         Code  Gb  ABImemcpy_unaligned.o [4]
-__low_level_init              0x67f    0x4  Code  Gb  low_level_init.o [2]
+                              0x3ed         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_zero_init3              0x443   0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init              0x7df    0x4  Code  Gb  low_level_init.o [2]
 __vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
-_call_main                    0x66d         Code  Gb  cmain.o [4]
-_exit                         0x689         Code  Gb  cexit.o [4]
-_main                         0x67b         Code  Gb  cmain.o [4]
+_call_main                    0x7cd         Code  Gb  cmain.o [4]
+_exit                         0x811         Code  Gb  cexit.o [4]
+_main                         0x7db         Code  Gb  cmain.o [4]
 delayMs                       0x26d   0x1a  Code  Gb  keypad.o [1]
-delayUs                       0x469   0x16  Code  Gb  lcd.o [1]
-exit                          0x683    0x4  Code  Gb  exit.o [2]
+delayUs                       0x47d   0x16  Code  Gb  lcd.o [1]
+evaluate                      0x5a1   0x9c  Code  Gb  calculation.o [1]
+exit                          0x80d    0x4  Code  Gb  exit.o [2]
+exp                     0x2000'0000    0x8  Data  Gb  calculation.o [1]
+flag                    0x2000'000c    0x1  Data  Gb  calculation.o [1]
+i                       0x2000'0008    0x4  Data  Gb  calculation.o [1]
+inttochar                     0x63d   0x2a  Code  Gb  calculation.o [1]
+isOperand                     0x589   0x12  Code  Gb  calculation.o [1]
 keypad_getkey                 0x2fd   0xba  Code  Gb  keypad.o [1]
 keypad_init                   0x287   0x76  Code  Gb  keypad.o [1]
-lcd_data                      0x525   0x24  Code  Gb  lcd.o [1]
-main                          0x565   0xa8  Code  Gb  main.o [1]
-pui32Stack              0x2000'0000  0x200  Data  Lc  startup_ewarm.o [1]
+lcd_clear                     0x579   0x10  Code  Gb  lcd.o [1]
+lcd_data                      0x539   0x24  Code  Gb  lcd.o [1]
+main                          0x6e9   0x84  Code  Gb  main.o [1]
+pui32Stack              0x2000'0010  0x200  Data  Lc  startup_ewarm.o [1]
+value                         0x59b    0x6  Code  Gb  calculation.o [1]
 
 
 [1] = G:\ASU\Class 2020\Microcontrollers\Assingments\Calculator\Debug\Obj
@@ -188,9 +224,9 @@ pui32Stack              0x2000'0000  0x200  Data  Lc  startup_ewarm.o [1]
 [4] = rt7M_tl.a
 [5] = shb_l.a
 
-  1 084 bytes of readonly  code memory
-    636 bytes of readonly  data memory
-    512 bytes of readwrite data memory
+  1 476 bytes of readonly  code memory
+    652 bytes of readonly  data memory
+    525 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

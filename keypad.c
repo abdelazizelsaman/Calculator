@@ -3,11 +3,11 @@
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
 #include <stdbool.h>
+#include "keypad.h"
 
 #define KEYPAD_ROW GPIOE
 #define KEYPAD_COL GPIOC
 
-bool flag;
 /* this function initializes the ports connected to the keypad */
 void delayMs(uint32_t n)
 {
@@ -80,17 +80,4 @@ if (col == 0xD0) return keymap[row][1]; /* key in column 1 */
 if (col == 0xB0) return keymap[row][2]; /* key in column 2 */
 if (col == 0x70) return keymap[row][3]; /* key in column 3 */
 return 0; /* just to be safe */
-}
-void GPIO_PORTC_Handler(void){
-  delayMs(200);
-  unsigned char character = keypad_getkey();
-  if( character !=0)
-  {
-  if ( character == '=')
-    return;
-  else 
-  {
-   lcd_data(character);   
-  }
-  }
 }

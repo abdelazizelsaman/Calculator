@@ -10,31 +10,15 @@ results in red led blinking*/
 
 #include "TM4C123GH6PM.h"
 #include <stdint.h>
-#include "prototypes.h"
+#include "lcd.h"
 #include "math.h"
 
-
-// these are general variables common used between all the functions. 
-uint8_t sign=0;    //to store the input sign +,-,/,*
-uint32_t i=0;      //index for the array of no[4]
-uint8_t z=1;      // to check that no signs can come after each other ex; ++,+= and intialized with 1 to prevent begining with any sign.
-uint8_t x=0;      // to calculate the operands.
-uint8_t no[5];    //array to store the numbers of the operand
-uint8_t key;      //to recieve the returned character
-uint32_t sum;   // for the result.
-uint32_t op=0;   //used in the operand calculation.
 
 
 int main(void)
 {
  __asm("CPSIE  I");
-/* enable clock to GPIOF at clock gating control register */
-SYSCTL_RCGCGPIO_R |= 0x20;
-/* enable the GPIO pins for the LED (PF3, 2 1) as output */
-GPIO_PORTF_DIR_R = 0x0E;
-/* enable the GPIO pins for digital function */
-GPIO_PORTF_DEN_R = 0x0E;
-        
+
 	      LCD_init();
         keypad_init();
       
@@ -56,8 +40,9 @@ GPIO_PORTF_DEN_R = 0x0E;
         lcd_data('n');
         lcd_data('d');
         lcd_data('s');
-        delayMs(3000);
+        delayMs(2000);
         LCD_command(1);    //clear the lcd.
+        
          while (1)
     {
     //

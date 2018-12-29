@@ -1,5 +1,6 @@
 #include "TM4C123GH6PM.h"
 #include <stdint.h>
+#include "lcd.h"
 
 #define LCD_DATA GPIOB
 #define LCD_CTRL GPIOA
@@ -7,7 +8,6 @@
 #define RW 0x40 /* PORTA BIT6 mask */
 #define EN 0x80 /* PORTA BIT7 mask */
 void LCD_command(unsigned char cmnd);
-
 void delayUs(uint32_t n)
 {
 int i, j;
@@ -54,4 +54,9 @@ GPIO_PORTA_DATA_R = EN | RS; /* pulse E */
 delayUs(0);
 GPIO_PORTA_DATA_R = 0;
 delayUs(40);
+}
+void lcd_clear()
+{
+    LCD_command(1);    //clear the lcd.
+    LCD_command(0x80);
 }
