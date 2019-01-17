@@ -13,8 +13,11 @@ results in red led blinking*/
 #include "lcd.h"
 #include "math.h"
 #include "calculation.h"
+#include "keypad.h"
+#include "eeprom.h"
 void welcomeMessage()
 {
+    lcd_clear();
   lcd_data('p');
   lcd_data('r');
   lcd_data('e');
@@ -32,8 +35,7 @@ void welcomeMessage()
   lcd_data('l');
   lcd_data('c');
   delayMs(2000);
-  LCD_command(1);    //clear the lcd.
-  LCD_command(0x80); /* lcd cursor location */
+ lcd_clear();
   lcd_data('2');
   lcd_data(' ');
   lcd_data('f');
@@ -51,9 +53,8 @@ void welcomeMessage()
 }
 void calcMessage()
 {
-LCD_command(1);    //clear the lcd.
-        LCD_command(0x80); /* lcd cursor location */
-        
+  lcd_clear();
+
         lcd_data('J');
         lcd_data('u');
         lcd_data('s');
@@ -74,7 +75,25 @@ LCD_command(1);    //clear the lcd.
 }
 void displayContacts()
 {
-
+  uint32_t *contacts = read_contacts();
+    lcd_clear();
+    int i=0;
+  for(;;i++)
+  {
+    if(contacts[i]== '@')
+    {
+      i++;
+      break;
+    }
+    lcd_data(contacts[i]);
+  }
+  lcdNextLine();
+  for(;;i++)
+  {
+   if(contacts[i]== '@')
+   break;
+    lcd_data(contacts[i]);
+  }
 }
 
 int main(void)

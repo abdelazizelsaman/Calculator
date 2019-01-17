@@ -10,4 +10,8 @@
 uint32_t EEPROM_init(void);
 uint32_t EEPROM_write(uint32_t *data, uint32_t addr, uint32_t count);
 void EEPROM_read(uint32_t *data, uint32_t addr, uint32_t count);
+uint32_t * read_contacts();
+void eeprom_storeContacts();
+
+
 

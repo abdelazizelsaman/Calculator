@@ -36,6 +36,7 @@
 #include "tm4c123gh6pm.h"
 #include "driverlib/sysctl.h"
 //#include "driverlib/eeprom.h"
+  uint32_t pwData[] = {'m','o','h','a','m','e','d','@','0','1','2','7','8','4','4','4','4','@'}; 
 
 uint32_t EEPROM_init(void){
   uint32_t ui32Status;
@@ -107,13 +108,10 @@ void EEPROM_read(uint32_t *data, uint32_t addr, uint32_t count){
   }    
   
 }
-
-void test_eeprom()
+void eeprom_storeContacts()
 {
-    uint32_t Status;
+ uint32_t Status;
   
-  uint32_t pwData[] = {0xffffffff, 0xffff0000, 0xf000ffff, 0xffffffff}; 
-  uint32_t prData[4];
   uint32_t addr = 0x100;
   uint32_t count = 4;
   
@@ -126,11 +124,18 @@ void test_eeprom()
    Status = EEPROM_write(pwData, addr, sizeof(pwData));
    if(Status)
      return 1;
-   
+}
+
+uint32_t * read_contacts()
+{
+  uint32_t addr = 0x100;
+  static uint32_t prData[4];
+
    EEPROM_read(prData, addr, sizeof(pwData));
    
    printf("prData[0] = %x\n", prData[0]);
    printf("prData[1] = %x\n", prData[1]);
    printf("prData[2] = %x\n", prData[2]);
    printf("prData[3] = %x\n", prData[3]);
+   return prData ;
 }

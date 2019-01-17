@@ -60,3 +60,7 @@ void lcd_clear()
     LCD_command(1);    //clear the lcd.
     LCD_command(0x80);
 }
+void lcdNextLine()
+{
+    LCD_command(0xC0);
+}
