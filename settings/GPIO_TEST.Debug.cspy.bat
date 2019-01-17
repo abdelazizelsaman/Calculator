@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\ATHER\Desktop\Sem.7_2018\Microcontrollers\lectures dr\milestone 4\Calculator-master\Calculator-master\settings\GPIO_TEST.Debug.general.xcl" --backend -f "C:\Users\ATHER\Desktop\Sem.7_2018\Microcontrollers\lectures dr\milestone 4\Calculator-master\Calculator-master\settings\GPIO_TEST.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "Z:\computer\semester 7\Micro Controllers\Milestone-4\settings\GPIO_TEST.Debug.general.xcl" --backend -f "Z:\computer\semester 7\Micro Controllers\Milestone-4\settings\GPIO_TEST.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\ATHER\Desktop\Sem.7_2018\Microcontrollers\lectures dr\milestone 4\Calculator-master\Calculator-master\settings\GPIO_TEST.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\ATHER\Desktop\Sem.7_2018\Microcontrollers\lectures dr\milestone 4\Calculator-master\Calculator-master\settings\GPIO_TEST.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "Z:\computer\semester 7\Micro Controllers\Milestone-4\settings\GPIO_TEST.Debug.general.xcl" "--debug_file=%~1" --backend -f "Z:\computer\semester 7\Micro Controllers\Milestone-4\settings\GPIO_TEST.Debug.driver.xcl" 
 
 @echo off 
 :end

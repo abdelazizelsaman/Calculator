@@ -1,9 +1,9 @@
-"C:\Users\ATHER\Desktop\Sem.7_2018\Microcontrollers\lectures dr\milestone 4\Calculator-master\Calculator-master\lcd.c"
+"Z:\computer\semester 7\Micro Controllers\Milestone-4\lcd.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -I
-C:\Users\ATHER\Desktop\Sem.7_2018\Microcontrollers\lectures dr\milestone 4\Calculator-master\Calculator-master
+Z:\computer\semester 7\Micro Controllers\Milestone-4
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\inc
 -I

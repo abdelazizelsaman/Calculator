@@ -118,12 +118,10 @@ void eeprom_storeContacts()
   SYSCTL_RCGCEEPROM_R = 0x00000001;
   
    Status = EEPROM_init();
-   if(Status)
-     return 1;
+
    
    Status = EEPROM_write(pwData, addr, sizeof(pwData));
-   if(Status)
-     return 1;
+   
 }
 
 uint32_t * read_contacts()

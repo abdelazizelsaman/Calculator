@@ -1,13 +1,3 @@
-//This project is made by:Hesham Salah Abdelfattah,Karim Amr,Mina Yousry Halim.
-
-//the code is about making a simple calculator using an lcd and 4x4 keypad.
-//the connection is (RS,RW,En)->(PA5,PA6,PA7) respectively and the remnained eight pins of the lcd to PB0->PB7.
-//for the keypad the 4 pins of the rows to PE0->PE3 and the 4 pins of the columns to PD0->PD3. 
-
-/*the RGB led should be lightened in blue when a number is pressed and turns off when a sign is pressed and again
-turns on in blue when another input is pressed.Finally,if the result is calculated well it blinks the green led and any error
-results in red led blinking*/
-
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
 #include "lcd.h"
@@ -30,6 +20,7 @@ void welcomeMessage()
   lcd_data('o');
   lcd_data('r');
   lcd_data(' ');
+  lcdNextLine();
   lcd_data('c');
   lcd_data('a');
   lcd_data('l');
@@ -42,6 +33,7 @@ void welcomeMessage()
   lcd_data('o');
   lcd_data('r');
   lcd_data(' ');
+  lcdNextLine();
   lcd_data('c');
   lcd_data('o');
   lcd_data('n');
@@ -102,8 +94,7 @@ int main(void)
 
 	      LCD_init();
         keypad_init();
-      
-	      
+        eeprom_storeContacts();
         
     while (1)
     {
