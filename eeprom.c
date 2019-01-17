@@ -123,11 +123,11 @@ void test_eeprom()
    if(Status)
      return 1;
    
-   Status = EEPROM_write(pwData, addr, count);
+   Status = EEPROM_write(pwData, addr, sizeof(pwData));
    if(Status)
      return 1;
    
-   EEPROM_read(prData, addr, count);
+   EEPROM_read(prData, addr, sizeof(pwData));
    
    printf("prData[0] = %x\n", prData[0]);
    printf("prData[1] = %x\n", prData[1]);

@@ -13,7 +13,42 @@ results in red led blinking*/
 #include "lcd.h"
 #include "math.h"
 
-
+void welcomeMessage()
+{
+  lcd_data('p');
+  lcd_data('r');
+  lcd_data('e');
+  lcd_data('s');
+  lcd_data('s');
+  lcd_data(' ');
+  lcd_data('1');
+  lcd_data(' ');
+  lcd_data('f');
+  lcd_data('o');
+  lcd_data('r');
+  lcd_data(' ');
+  lcd_data('c');
+  lcd_data('a');
+  lcd_data('l');
+  lcd_data('c');
+  delayMs(2000);
+  LCD_command(1);    //clear the lcd.
+  LCD_command(0x80); /* lcd cursor location */
+  lcd_data('2');
+  lcd_data(' ');
+  lcd_data('f');
+  lcd_data('o');
+  lcd_data('r');
+  lcd_data(' ');
+  lcd_data('c');
+  lcd_data('o');
+  lcd_data('n');
+  lcd_data('t');
+  lcd_data('a');
+  lcd_data('c');
+  lcd_data('t');
+  lcd_data('s');
+}
 
 int main(void)
 {
@@ -23,32 +58,28 @@ int main(void)
         keypad_init();
       
 	      LCD_command(1);    //clear the lcd.
-               LCD_command(0x80); /* lcd cursor location */
-
-        lcd_data('J');
-        lcd_data('u');
-        lcd_data('s');
-        lcd_data('t');
-        lcd_data(' ');
-	      lcd_data('2');
-	      lcd_data(' ');
-        lcd_data('O');
-        lcd_data('p');
-        lcd_data('e');
-        lcd_data('r');
-				lcd_data('a');
-        lcd_data('n');
-        lcd_data('d');
-        lcd_data('s');
-        delayMs(2000);
-        LCD_command(1);    //clear the lcd.
+        LCD_command(0x80); /* lcd cursor location */
+        
+        // lcd_data('J');
+        // lcd_data('u');
+        // lcd_data('s');
+        // lcd_data('t');
+        // lcd_data(' ');
+	      // lcd_data('2');
+	      // lcd_data(' ');
+        // lcd_data('O');
+        // lcd_data('p');
+        // lcd_data('e');
+        // lcd_data('r');
+				// lcd_data('a');
+        // lcd_data('n');
+        // lcd_data('d');
+        // lcd_data('s');
+        // delayMs(2000);
+        // LCD_command(1);    //clear the lcd.
         
          while (1)
     {
-    //
-    // Processor enters Sleep Mode to save Power instead of Looping
-    // Once Interrupt happens, Processor goes directly into Run mode
-    //      
-      __asm("      wfi\n");
+        welcomeMessage();
     }
 }
