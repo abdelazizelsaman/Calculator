@@ -8,7 +8,7 @@
 turns on in blue when another input is pressed.Finally,if the result is calculated well it blinks the green led and any error
 results in red led blinking*/
 
-#include "TM4C123GH6PM.h"
+#include "tm4c123gh6pm.h"
 #include <stdint.h>
 #include "lcd.h"
 #include "math.h"
