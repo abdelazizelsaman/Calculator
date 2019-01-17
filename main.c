@@ -12,7 +12,7 @@ results in red led blinking*/
 #include <stdint.h>
 #include "lcd.h"
 #include "math.h"
-
+#include "calculation.h"
 void welcomeMessage()
 {
   lcd_data('p');
@@ -49,6 +49,33 @@ void welcomeMessage()
   lcd_data('t');
   lcd_data('s');
 }
+void calcMessage()
+{
+LCD_command(1);    //clear the lcd.
+        LCD_command(0x80); /* lcd cursor location */
+        
+        lcd_data('J');
+        lcd_data('u');
+        lcd_data('s');
+        lcd_data('t');
+        lcd_data(' ');
+	      lcd_data('2');
+	      lcd_data(' ');
+        lcd_data('O');
+        lcd_data('p');
+        lcd_data('e');
+        lcd_data('r');
+				lcd_data('a');
+        lcd_data('n');
+        lcd_data('d');
+        lcd_data('s');
+        delayMs(2000);
+        LCD_command(1);    //clear the lcd.
+}
+void displayContacts()
+{
+
+}
 
 int main(void)
 {
@@ -57,29 +84,15 @@ int main(void)
 	      LCD_init();
         keypad_init();
       
-	      LCD_command(1);    //clear the lcd.
-        LCD_command(0x80); /* lcd cursor location */
+	      
         
-        // lcd_data('J');
-        // lcd_data('u');
-        // lcd_data('s');
-        // lcd_data('t');
-        // lcd_data(' ');
-	      // lcd_data('2');
-	      // lcd_data(' ');
-        // lcd_data('O');
-        // lcd_data('p');
-        // lcd_data('e');
-        // lcd_data('r');
-				// lcd_data('a');
-        // lcd_data('n');
-        // lcd_data('d');
-        // lcd_data('s');
-        // delayMs(2000);
-        // LCD_command(1);    //clear the lcd.
-        
-         while (1)
+    while (1)
     {
+      if(!calc && !contact)
         welcomeMessage();
+      if(calc)
+        calcMessage();
+        if(contact)
+          displayContacts();
     }
 }

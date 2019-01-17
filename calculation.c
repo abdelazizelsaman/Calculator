@@ -8,6 +8,8 @@
 unsigned char exp[5];
 bool flag = false;
 int i ;
+bool calc =false;
+bool contact= false;
 bool isOperand(unsigned char c) { 
     return (c >= '0' && c <= '9'); 
     } 
@@ -58,30 +60,55 @@ void inttochar(int x1)
 }
 
 void GPIO_PORTC_Handler(void){
-    if(!flag)
+    if(calc)
+    {
+        if(!flag)
         {
             lcd_clear();
             i=0;
             flag = true;
         }
-  delayMs(200);
-  unsigned char character = keypad_getkey(); 
-  if( character !=0)
-  {
-  if ( character == '=')
-    {
-        exp[i]='\0';
-        lcd_data(character);
-        int x = evaluate(exp);
-        inttochar(x);
-        delayMs(1000);
-        flag =false;
+        delayMs(200);
+        unsigned char character = keypad_getkey(); 
+        if( character !=0)
+        {
+        if ( character == '=')
+            {
+                exp[i]='\0';
+                lcd_data(character);
+                int x = evaluate(exp);
+                inttochar(x);
+                delayMs(1000);
+                flag =false;
+            }
+        else 
+            {
+                lcd_data(character);
+                exp[i] = character;
+                i++;
+            }
+        }
     }
-  else 
-  {
-      lcd_data(character);
-      exp[i] = character;
-      i++;
-  }
-  }
+    if(contact)
+    {
+
+    }
+    if(!contact && !calc)
+    {
+        delayMs(200);
+        unsigned char character = keypad_getkey();
+        if(character == '1')
+        {
+            calc= true;
+            lcd_clear();
+
+        }
+        else if (character == '2')
+        {
+            contact=true;
+            lcd_clear();
+        }
+       
+        
+    }
 }
