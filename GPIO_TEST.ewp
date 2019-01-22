@@ -66,7 +66,7 @@
                 </option>
                 <option>
                     <name>OGLastSavedByProductVersion</name>
-                    <state>8.32.1.18618</state>
+                    <state>8.30.2.18207</state>
                 </option>
                 <option>
                     <name>GeneralEnableMisra</name>
@@ -215,13 +215,9 @@
             <name>ICCARM</name>
             <archiveVersion>2</archiveVersion>
             <data>
-                <version>35</version>
+                <version>34</version>
                 <wantNonLocal>1</wantNonLocal>
                 <debug>1</debug>
-                <option>
-                    <name>CCOptimizationNoSizeConstraints</name>
-                    <state>0</state>
-                </option>
                 <option>
                     <name>CCDefines</name>
                     <state></state>
@@ -236,7 +232,7 @@
                 </option>
                 <option>
                     <name>CCPreprocLine</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCListCFile</name>
@@ -427,6 +423,10 @@
                     <state>0</state>
                 </option>
                 <option>
+                    <name>CCOptimizationNoSizeConstraints</name>
+                    <state>0</state>
+                </option>
+                <option>
                     <name>CCNoLiteralPool</name>
                     <state>0</state>
                 </option>
@@ -462,10 +462,6 @@
                 <option>
                     <name>IccRTTI2</name>
                     <state>0</state>
-                </option>
-                <option>
-                    <name>OICompilerExtraOption</name>
-                    <state>1</state>
                 </option>
             </data>
         </settings>
@@ -687,13 +683,9 @@
             <name>ILINK</name>
             <archiveVersion>0</archiveVersion>
             <data>
-                <version>22</version>
+                <version>21</version>
                 <wantNonLocal>1</wantNonLocal>
                 <debug>1</debug>
-                <option>
-                    <name>IlinkOutputFile</name>
-                    <state>$PROJ_FNAME$.out</state>
-                </option>
                 <option>
                     <name>IlinkLibIOConfig</name>
                     <state>1</state>
@@ -705,6 +697,10 @@
                 <option>
                     <name>IlinkInputFileSlave</name>
                     <state>0</state>
+                </option>
+                <option>
+                    <name>IlinkOutputFile</name>
+                    <state>GPIO_TEST.out</state>
                 </option>
                 <option>
                     <name>IlinkDebugInfoEnable</name>
@@ -1003,10 +999,6 @@
                     <name>IlinkTrustzoneImportLibraryOut</name>
                     <state>GPIO_TEST_import_lib.o</state>
                 </option>
-                <option>
-                    <name>OILinkExtraOption</name>
-                    <state>1</state>
-                </option>
             </data>
         </settings>
         <settings>
@@ -1250,13 +1242,9 @@
             <name>ICCARM</name>
             <archiveVersion>2</archiveVersion>
             <data>
-                <version>35</version>
+                <version>34</version>
                 <wantNonLocal>1</wantNonLocal>
                 <debug>0</debug>
-                <option>
-                    <name>CCOptimizationNoSizeConstraints</name>
-                    <state>0</state>
-                </option>
                 <option>
                     <name>CCDefines</name>
                     <state>NDEBUG</state>
@@ -1271,7 +1259,7 @@
                 </option>
                 <option>
                     <name>CCPreprocLine</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCListCFile</name>
@@ -1409,7 +1397,7 @@
                 </option>
                 <option>
                     <name>CCOptLevelSlave</name>
-                    <state>3</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CompilerMisraRules98</name>
@@ -1462,6 +1450,10 @@
                     <state>0</state>
                 </option>
                 <option>
+                    <name>CCOptimizationNoSizeConstraints</name>
+                    <state>0</state>
+                </option>
+                <option>
                     <name>CCNoLiteralPool</name>
                     <state>0</state>
                 </option>
@@ -1497,10 +1489,6 @@
                 <option>
                     <name>IccRTTI2</name>
                     <state>0</state>
-                </option>
-                <option>
-                    <name>OICompilerExtraOption</name>
-                    <state>1</state>
                 </option>
             </data>
         </settings>
@@ -1722,13 +1710,9 @@
             <name>ILINK</name>
             <archiveVersion>0</archiveVersion>
             <data>
-                <version>22</version>
+                <version>21</version>
                 <wantNonLocal>1</wantNonLocal>
                 <debug>0</debug>
-                <option>
-                    <name>IlinkOutputFile</name>
-                    <state>$PROJ_FNAME$.out</state>
-                </option>
                 <option>
                     <name>IlinkLibIOConfig</name>
                     <state>1</state>
@@ -1740,6 +1724,10 @@
                 <option>
                     <name>IlinkInputFileSlave</name>
                     <state>0</state>
+                </option>
+                <option>
+                    <name>IlinkOutputFile</name>
+                    <state>###Unitialized###</state>
                 </option>
                 <option>
                     <name>IlinkDebugInfoEnable</name>
@@ -1803,7 +1791,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state></state>
+                    <state>lnk0t.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -2038,10 +2026,6 @@
                     <name>IlinkTrustzoneImportLibraryOut</name>
                     <state>###Unitialized###</state>
                 </option>
-                <option>
-                    <name>OILinkExtraOption</name>
-                    <state>1</state>
-                </option>
             </data>
         </settings>
         <settings>
@@ -2073,6 +2057,9 @@
     </configuration>
     <file>
         <name>$PROJ_DIR$\calculation.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\driverlib\ewarm\Exe\driverlib.a</name>
     </file>
     <file>
         <name>$PROJ_DIR$\eeprom.c</name>

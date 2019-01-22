@@ -1,9 +1,9 @@
-"G:\ASU\Class 2020\Microcontrollers\Assingments\Calculator\startup_ewarm.c"
+"C:\Users\Carnival\Milestone-4\startup_ewarm.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -I
-G:\ASU\Class 2020\Microcontrollers\Assingments\Calculator
+C:\Users\Carnival\Milestone-4
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\inc
 -I
